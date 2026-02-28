@@ -1,0 +1,66 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>The Metropolitan Standard — Opinion</title>
+  <link rel="stylesheet" href="styles.css" />
+</head>
+<body>
+
+  <header class="masthead">
+    <div class="paper">
+      <div class="masthead-top">
+        <div class="rule"></div>
+        <div class="name">THE METROPOLITAN STANDARD</div>
+        <div class="rule"></div>
+      </div>
+
+      <nav class="nav">
+        <span>Opinion</span>
+        <span>Culture</span>
+        <span>Society</span>
+        <span>About</span>
+      </nav>
+    </div>
+  </header>
+
+  <main class="paper">
+    <section class="kicker">OPINION</section>
+
+    <h1 class="headline">Your Headline Goes Here</h1>
+    <p class="deck">A one–two sentence subtitle that frames the argument like a real editorial.</p>
+
+    <div class="byline">
+      <span class="author">By Ayan Khan</span>
+      <span class="dot">•</span>
+      <time datetime="2026-02-28">February 28, 2026</time>
+    </div>
+
+    <article class="story">
+      <p class="lead"><span class="dropcap">T</span>his is your opening paragraph. Make it sharp. Make it human. Make it feel like it belongs in a paper.</p>
+
+      <p>Second paragraph. Add context. What’s happening, what changed, and why should anyone care?</p>
+
+      <blockquote class="pullquote">
+        “Put a strong pull quote here — something that sounds inevitable.”
+      </blockquote>
+
+      <p>Keep writing your argument. Add a counterpoint. Then dismantle it calmly.</p>
+
+      <h2>A clean section header</h2>
+      <p>Finish with a closing paragraph that lands the point without overexplaining.</p>
+    </article>
+
+    <footer class="footer">
+      <div class="rule"></div>
+      <p><strong>About the author:</strong> Ayan Khan is a student and writer focused on society, power, and everyday American life.</p>
+      <p class="fineprint">© <span id="year"></span> The Metropolitan Standard</p>
+    </footer>
+  </main>
+
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
