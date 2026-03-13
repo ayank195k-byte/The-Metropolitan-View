@@ -1,238 +1,350 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="utf-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>The Metropolitan View — Opinion</title>
-  <meta name="description" content="When do you become an adult? A NYT-inspired editorial sample by Ayan Khan." />
-  <link rel="stylesheet" href="styles.css" />
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>The Endless Adolescence — The Metropolitan Standard</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --black:   #0d0d0d;
+    --surface: #f4f1eb;
+    --stone:   #e6e0d4;
+    --rule:    #d4cdc0;
+    --muted:   #8c8479;
+    --text:    #2a2724;
+    --red:     #b92a2a;
+    --red-dim: #8a1f1f;
+  }
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { font-size: 17px; background: var(--surface); scroll-behavior: smooth; }
+  body { font-family: 'Cormorant Garamond', Georgia, serif; color: var(--text); background: var(--surface); -webkit-font-smoothing: antialiased; }
+
+  /* MASTHEAD */
+  .masthead { background: var(--surface); border-bottom: 3px solid var(--black); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
+  .mast-left { padding: 20px 28px; border-right: 1px solid var(--rule); }
+  .mast-right { padding: 20px 28px; border-left: 1px solid var(--rule); display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
+  .mast-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; letter-spacing: 0.16em; text-transform: uppercase; color: var(--muted); line-height: 2; }
+  .mast-center { padding: 28px 56px; text-align: center; }
+  .mast-wordmark { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.6rem, 5.5vw, 5rem); letter-spacing: 0.08em; color: var(--black); line-height: 1; margin-bottom: 8px; }
+  .mast-rule { height: 1px; background: linear-gradient(to right, transparent, var(--rule), transparent); margin: 6px 0; }
+  .mast-tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
+  .opinion-pill { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; background: var(--red); color: #fff; padding: 5px 12px; }
+
+  /* NAV */
+  .nav { background: var(--black); display: flex; justify-content: center; border-bottom: 1px solid #222; overflow-x: auto; }
+  .nav a { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: #666; text-decoration: none; padding: 13px 22px; border-right: 1px solid #222; transition: color 0.2s, background 0.2s; white-space: nowrap; }
+  .nav a:first-child { border-left: 1px solid #222; }
+  .nav a:hover { color: #fff; background: #1a1a1a; }
+  .nav a.active { color: var(--red); background: #1a1a1a; }
+
+  /* HERO */
+  .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 86vh; border-bottom: 1px solid var(--rule); }
+  .hero-text { background: var(--black); padding: 76px 64px 64px; display: flex; flex-direction: column; justify-content: space-between; border-right: 4px solid var(--red); }
+  .hero-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; }
+  .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.2rem, 5vw, 5.4rem); line-height: 0.94; letter-spacing: 0.02em; color: #fff; text-transform: uppercase; margin-bottom: 32px; }
+  .hero-title-sub { font-family: 'Cormorant', serif; font-size: clamp(1.4rem, 2.6vw, 2.2rem); font-style: italic; font-weight: 600; color: #ccc; line-height: 1.2; display: block; text-transform: none; margin-top: 10px; }
+  .hero-deck { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; line-height: 1.72; color: #888; max-width: 420px; margin-bottom: 52px; border-left: 2px solid var(--red-dim); padding-left: 18px; }
+  .hero-byline { padding-top: 28px; border-top: 1px solid #2a2a2a; }
+  .hero-byline-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
+  .hero-byline-name { font-family: 'Cormorant', serif; font-size: 2.1rem; font-style: italic; font-weight: 700; color: #fff; margin-bottom: 8px; line-height: 1; }
+  .hero-byline-role { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
+  .hero-byline-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; color: #666; }
+
+  /* HERO IMAGE */
+  .hero-img { position: relative; overflow: hidden; background: #0a0908; }
+  .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.5) contrast(1.05) brightness(0.85); transition: transform 8s ease, filter 1.2s ease; }
+  .hero-img:hover img { transform: scale(1.04); filter: saturate(0.65) brightness(0.92); }
+  .hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 35%), radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.3) 100%); pointer-events: none; }
+  .hero-img-cap { position: absolute; bottom: 20px; left: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); z-index: 2; }
+
+  /* STATS */
+  .stats { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--black); border-bottom: 1px solid #222; }
+  .stat { padding: 28px 36px; border-right: 1px solid #222; text-align: center; }
+  .stat:last-child { border-right: none; }
+  .stat-n { font-family: 'Bebas Neue', sans-serif; font-size: 2.8rem; color: #fff; line-height: 1; margin-bottom: 6px; }
+  .stat-n span { color: var(--red); }
+  .stat-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: #aaa; }
+
+  /* CONTENT */
+  .content { display: grid; grid-template-columns: 1fr 272px; border-bottom: 1px solid var(--rule); }
+  .body { padding: 68px 68px 80px; border-right: 1px solid var(--rule); background: var(--surface); }
+  .sidebar { padding: 48px 26px; background: var(--stone); }
+
+  .s-head { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; letter-spacing: 0.3em; text-transform: uppercase; color: var(--red); margin: 0 0 30px; display: flex; align-items: center; gap: 14px; }
+  .s-head::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+
+  .body p { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 400; line-height: 1.88; color: var(--text); margin-bottom: 1.6rem; text-align: justify; hyphens: auto; }
+  .body > p:first-of-type::first-letter { font-family: 'Bebas Neue', sans-serif; font-size: 5.4rem; line-height: 0.74; float: left; margin-right: 0.09em; margin-top: 0.08em; color: var(--red); }
+
+  .photo { margin: 2.8rem -24px; position: relative; overflow: hidden; }
+  .photo img { width: 100%; height: 400px; object-fit: cover; display: block; filter: saturate(0.5) contrast(1.05) brightness(0.88); transition: filter 1.2s ease; }
+  .photo:hover img { filter: saturate(0.65) brightness(0.95); }
+  .photo::after { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse at center, transparent 45%, rgba(0,0,0,0.35) 100%); pointer-events: none; }
+  .photo figcaption { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.14em; text-transform: uppercase; color: var(--muted); padding: 10px 24px 0; }
+
+  .div { display: flex; align-items: center; gap: 14px; margin: 3.2rem 0 2.8rem; }
+  .div::before, .div::after { content: ''; flex: 1; height: 1px; background: var(--rule); }
+  .div-gem { width: 5px; height: 5px; background: var(--red); transform: rotate(45deg); }
+
+  .pull { margin: 3rem 0; padding: 32px 0 28px; border-top: 3px solid var(--black); border-bottom: 1px solid var(--rule); }
+  .pull p { font-family: 'Cormorant', serif !important; font-size: 1.85rem !important; font-weight: 600 !important; font-style: italic !important; line-height: 1.3 !important; color: var(--black) !important; text-align: left !important; margin-bottom: 16px !important; }
+  .pull p::first-letter { all: unset; font-family: 'Cormorant', serif; }
+  .pull cite { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--muted); }
+
+  .callout { background: var(--black); padding: 28px 32px; margin: 2.8rem 0; }
+  .callout-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); margin-bottom: 14px; }
+  .callout p { font-family: 'Cormorant Garamond', serif !important; font-size: 1.05rem !important; font-weight: 300 !important; line-height: 1.8 !important; color: #aaa !important; text-align: left !important; margin-bottom: 0 !important; }
+  .callout p::first-letter { all: unset; }
+  .callout strong { color: #fff; font-weight: 500; }
+
+  .sb { padding-bottom: 32px; margin-bottom: 32px; border-bottom: 1px solid var(--rule); }
+  .sb:last-child { border-bottom: none; margin-bottom: 0; }
+  .sb-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); margin-bottom: 12px; }
+  .sb-photo { width: 100%; height: 172px; object-fit: cover; display: block; filter: saturate(0.5) brightness(0.9); margin-bottom: 12px; transition: filter 1s ease; }
+  .sb-photo:hover { filter: saturate(0.65) brightness(1.0); }
+  .sb-num { font-family: 'Bebas Neue', sans-serif; font-size: 3.6rem; color: var(--text); line-height: 1; margin-bottom: 8px; }
+  .sb-num span { color: var(--red); }
+  .sb-verdict { font-family: 'Cormorant', serif; font-size: 1.3rem; font-style: italic; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
+  .sb-text { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; line-height: 1.8; color: var(--muted); }
+
+  .refs { background: var(--black); padding: 56px 68px; display: grid; grid-template-columns: 150px 1fr; gap: 48px; border-bottom: 1px solid #222; }
+  .refs-head { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.06em; color: #fff; line-height: 1.1; }
+  .ref { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; line-height: 1.75; color: #888; padding-left: 1.3rem; text-indent: -1.3rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #222; }
+  .ref:last-child { border-bottom: none; margin-bottom: 0; }
+  .ref em { color: #ccc; font-style: italic; }
+
+  .footer { background: var(--black); padding: 32px 68px; display: flex; justify-content: space-between; align-items: center; border-top: 4px solid var(--red); }
+  .footer-brand { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 0.08em; color: #fff; }
+  .footer-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.54rem; letter-spacing: 0.14em; text-transform: uppercase; color: #666; text-align: right; line-height: 2; }
+
+  @keyframes rise { from { opacity: 0; } to { opacity: 1; } }
+  .masthead { animation: rise 0.6s ease both; }
+  .hero      { animation: rise 0.6s ease 0.1s both; }
+  .stats     { animation: rise 0.6s ease 0.15s both; }
+  .content   { animation: rise 0.6s ease 0.2s both; }
+
+  @media (max-width: 920px) {
+    .masthead { grid-template-columns: 1fr; text-align: center; }
+    .mast-left, .mast-right { border: none; border-bottom: 1px solid var(--rule); align-items: center; }
+    .hero { grid-template-columns: 1fr; min-height: auto; }
+    .hero-text { padding: 52px 28px 44px; border-right: none; border-bottom: 4px solid var(--red); }
+    .hero-img { height: 55vw; min-height: 260px; }
+    .stats { grid-template-columns: 1fr; }
+    .stat { border-right: none; border-bottom: 1px solid #222; }
+    .content { grid-template-columns: 1fr; }
+    .body { padding: 44px 24px; border-right: none; }
+    .sidebar { border-top: 1px solid var(--rule); padding: 36px 24px; }
+    .refs { grid-template-columns: 1fr; gap: 20px; padding: 44px 24px; }
+    .footer { padding: 26px 24px; flex-direction: column; gap: 12px; text-align: center; }
+    .footer-meta { text-align: center; }
+  }
+</style>
 </head>
-
 <body>
-  <!-- Top bar -->
-  <header class="topbar">
-    <div class="wrap">
-      <div class="topbar-left">
-        <span class="pill">OPINION</span>
-        <span class="muted">|</span>
-        <a class="toplink" href="#sources">Sources</a>
-        <span class="muted">•</span>
-        <a class="toplink" href="#about">About</a>
-      </div>
-      <div class="topbar-right">
-        <span class="muted">The Metropolitan View</span>
-      </div>
+
+<header class="masthead">
+  <div class="mast-left">
+    <div class="mast-meta">Philadelphia, Pennsylvania<br>February 28, 2026<br>Vol. IV &mdash; No. 12</div>
+  </div>
+  <div class="mast-center">
+    <div class="mast-wordmark">The Metropolitan Standard</div>
+    <div class="mast-rule"></div>
+    <div class="mast-tagline">Opinion &nbsp;&middot;&nbsp; Culture &nbsp;&middot;&nbsp; Cities &nbsp;&middot;&nbsp; Ideas</div>
+  </div>
+  <div class="mast-right">
+    <div class="mast-meta" style="text-align:right;">Est. 2022<br>Free Press</div>
+    <div class="opinion-pill">Opinion</div>
+  </div>
+</header>
+
+<nav class="nav">
+  <a href="#">News</a>
+  <a href="#" class="active">Opinion</a>
+  <a href="#">Culture</a>
+  <a href="#">Cities</a>
+  <a href="#">Science</a>
+  <a href="#">Politics</a>
+  <a href="#">Archive</a>
+  <a href="#">About</a>
+</nav>
+
+<section class="hero">
+  <div class="hero-text">
+    <div>
+      <div class="hero-label">Essay No. 01 &mdash; Society &amp; Adulthood</div>
+      <h1 class="hero-title">
+        The Endless<br>Adolescence
+        <span class="hero-title-sub">America's Most Comfortable Crisis</span>
+      </h1>
+      <p class="hero-deck">Why a generation old enough to vote, serve, and die for their country still isn't sure they're grown up, and why that question depends entirely on who's asking.</p>
     </div>
-  </header>
-
-  <!-- Masthead -->
-  <section class="masthead">
-    <div class="wrap">
-      <div class="masthead-rule"></div>
-      <div class="masthead-name">THE METROPOLITAN VIEW</div>
-      <div class="masthead-sub">Independent student editorial | Camden–Philadelphia corridor</div>
-      <div class="masthead-rule"></div>
-      <nav class="nav">
-        <a href="#essay">Essay</a>
-        <a href="#local">Local</a>
-        <a href="#underrep">Underrepresented</a>
-        <a href="#international">International</a>
-        <a href="#sources">Sources</a>
-      </nav>
+    <div class="hero-byline">
+      <div class="hero-byline-label">Written &amp; Edited by</div>
+      <div class="hero-byline-name">Ayan Khan</div>
+      <div class="hero-byline-role">Founder &nbsp;&middot;&nbsp; Editor-in-Chief &nbsp;&middot;&nbsp; The Metropolitan Standard</div>
+      <div class="hero-byline-meta">Feb. 28, 2026 &nbsp;&middot;&nbsp; Philadelphia, PA &nbsp;&middot;&nbsp; 8 min read</div>
     </div>
-  </section>
+  </div>
+  <div class="hero-img">
+    <img
+      src="https://images.unsplash.com/photo-1569761316261-9a8696fa2ca3?w=1400&q=85&auto=format&fit=crop"
+      alt="Philadelphia skyline"
+      onerror="this.src='https://images.unsplash.com/photo-1501504905252-473c47e087f8?w=1400&q=85&auto=format&fit=crop'"
+    >
+    <div class="hero-img-cap">Philadelphia, Pennsylvania &nbsp;&middot;&nbsp; 2025</div>
+  </div>
+</section>
 
-  <!-- Article -->
-  <main class="wrap article" id="essay">
-    <div class="grid">
-      <!-- Main column -->
-      <article class="story">
-        <div class="kicker">Opinion</div>
+<div class="stats">
+  <div class="stat">
+    <div class="stat-n">20<span>K</span></div>
+    <div class="stat-l">Foster youth displaced per year</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">30<span>%</span></div>
+    <div class="stat-l">Face homelessness within 2 years</div>
+  </div>
+  <div class="stat">
+    <div class="stat-n">722</div>
+    <div class="stat-l">UK survey participants on adulthood</div>
+  </div>
+</div>
 
-        <h1 class="headline">When Do You Become an Adult?</h1>
-        <p class="deck">
-          Legal age is simple. Real adulthood isn’t. In a world of debt, delayed milestones, and uneven support systems,
-          “adult” has become less of a birthday and more of a burden—distributed unequally.
-        </p>
+<div class="content">
+  <main class="body">
 
-        <div class="byline">
-          <span class="by">By</span> <span class="author">Ayan Khan</span>
-          <span class="dot">•</span>
-          <time datetime="2026-02-28">February 28, 2026</time>
-        </div>
+    <div class="s-head">Local &mdash; Philadelphia</div>
 
-        <!-- Hero image -->
-        <figure class="hero">
-          <img src="images/adult-hero.jpg" alt="City street at night representing modern adulthood." />
-          <figcaption>
-            Modern adulthood isn’t a single milestone—it's a moving target shaped by economics, family, and support.
-          </figcaption>
-        </figure>
+    <p>Philadelphia is a city filled with enigmas. It is home to America's founding fathers, home to some of the oldest institutions of higher education and some of its most visible poverty. It has a neighborhood for every tax bracket. Underfunded and filthy SEPTA trains for every hour of the night, this can be a painful reality for people like Miracle, a young woman thrown out of the foster care system who has been documented sleeping on those trains just to get away from all the shit and filth this city has to offer to its citizens (Volk, 2021). Philadelphia is also filled with recent college graduates, most of those products of the wealthy sitting dumbfounded and pondering cluelessly about what exactly it is they are supposed to do next. Megan (2008) documented this particular species in the Philadelphia Inquirer, about those who followed the easy path of completing college but having no idea what the world actually requires of them. The question that slowly crawls in the spine of all these young adults is almost identical: at what point exactly did I become an adult? And why can't anybody tell me the damn truth?</p>
 
-        <p class="lead">
-          <span class="dropcap">A</span>dulthood used to be measured like a checklist: move out, get a job, get married,
-          buy a home. Now, those milestones are delayed or unreachable for a lot of people—and “adult” becomes more
-          psychological than practical. In that gap, people feel grown on paper but lost in real life.
-        </p>
+    <p>During a conversation, this question flows freely. Adulthood is a real and necessary path everyone has to cross, but no one ever tells us exactly how. Legally it is 18, neurologically it has long been claimed to be 25, although that claim is becoming difficult to defend as more research is published (Burnett, 2024). Emotional, social and financial maturity differs by who and where you are, and how willing your parents or guardians are to support you.</p>
 
-        <p>
-          If adulthood is responsibility, then the question isn’t “How old are you?” It’s “What are you expected to carry?”
-          The problem is that expectations aren’t equal. Some people inherit stability; others inherit obstacles.
-        </p>
+    <figure class="photo">
+      <img
+        src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=85&auto=format&fit=crop&crop=center"
+        alt="Philadelphia neighborhood"
+        onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85&auto=format&fit=crop'"
+      >
+      <figcaption>North Philadelphia &nbsp;&middot;&nbsp; Two versions of young adulthood exist within blocks of each other</figcaption>
+    </figure>
 
-        <blockquote class="pullquote">
-          “Adulthood isn’t an age. It’s the moment you realize the system won’t catch you—and you have to catch yourself.”
-        </blockquote>
+    <div class="div"><div class="div-gem"></div></div>
+    <div class="s-head">My Stake</div>
 
-        <h2 id="local">Local Journalism</h2>
-        <div class="sourcecard">
-          <div class="source-title">
-            Megan, K. <em>Parents and grads need to talk about goals.</em> <span class="pub">The Philadelphia Inquirer</span>
-            <span class="date">(July 8, 2008)</span>
-          </div>
-          <div class="source-links">
-            <a href="#" title="Replace # with your real link">Link</a>
-          </div>
-        </div>
+    <p>I moved to Philadelphia a month ago. Not because I had to. Because everything in my body wanted to. I was done with the chains of living inside someone else's house, someone else's idea of what a life in progress is supposed to look like. I packed up, quit my job and moved in with my girlfriend, and started doing what adults apparently do.</p>
 
-        <figure class="inlinefig">
-          <img src="images/city.jpg" alt="A neighborhood street symbolizing local journalism and everyday adulthood." />
-          <figcaption>Local reporting catches the quiet pressure points: family expectations, career anxiety, and identity.</figcaption>
-        </figure>
+    <p>Nobody tells you that adulthood shows you its colors through household supplies. Not through some cinematic or "ah-hah" moment but rather through trash bags, parking tickets and next month's rent. Seeing past the hidden veil of a functioning life costs actual money and requires actual coordination from an actual person, and that person is now you. It is not easy nor glamorous. It is also, and I want to emphasize this, significantly better than the alternative.</p>
 
-        <p>
-          This piece sits inside a familiar post-graduation fog: people who are technically qualified but emotionally unready,
-          expected to “know the plan” immediately. The article points to something basic but often missing—honest conversations
-          between parents and young adults about goals, fear, and what “independence” actually means.
-        </p>
+    <p>That last part is the whole point of this piece. Nobody tells you that independence, with all its ugly moments, all of its moving parts and weight, even standing in a completely new city with no idea how to pay next month's rent, is significantly better than the life where you are bound by the decisions of another person. This pride and accomplishment takes you from a "kid" to an "adult." After you take that leap everything after that lets you control the script of your own movie, where you are the director, the actor and the producer.</p>
 
-        <p>
-          The limitation is time: 2008 is a different economy. Still, it captures a truth that didn’t expire—many young adults
-          feel like they’re performing adulthood rather than living it.
-        </p>
+    <p>The countless wanderers I brush shoulders with on the streets of Philadelphia are not failed adults. They are a reminder that the question of when you grow up looks very different depending on what you're growing up into, and what you're growing up away from.</p>
 
-        <h2 id="underrep">Underrepresented Voice</h2>
-        <div class="sourcecard">
-          <div class="source-title">
-            Volk, S. <em>Youth aging out of foster care are at risk of homelessness. Is Philadelphia doing all it can?</em>
-            <span class="pub">Generocity</span> <span class="date">(July 28, 2021)</span>
-          </div>
-          <div class="source-links">
-            <a href="#" title="Replace # with your real link">Link</a>
-          </div>
-        </div>
+    <div class="div"><div class="div-gem"></div></div>
+    <div class="s-head">The Broader Picture</div>
 
-        <figure class="inlinefig">
-          <img src="images/foster.jpg" alt="Transit scene representing instability and youth transition." />
-          <figcaption>For some, adulthood arrives as a deadline—without a safety net.</figcaption>
-        </figure>
+    <p>This question about adulthood is obviously not native to America. In the UK a study organized 722 people and asked them to describe adulthood. They all had a similar answer: for them adulthood was simply the feeling of having personal responsibility and the ability to survive, rather than the traditional goals of marriage or homeownership (Wright, 2023).</p>
 
-        <p>
-          This reporting highlights the unfair version of adulthood: turning 18 or 21 and being expected to survive with minimal
-          support. When foster youth age out, adulthood can look like immediate housing insecurity—more cliff than milestone.
-        </p>
-
-        <p>
-          If middle-class kids can lean on family well into their twenties, why do vulnerable young adults get treated like
-          “full adults” the moment the system is done with them?
-        </p>
-
-        <h2 id="international">International Journalism</h2>
-        <div class="sourcecard">
-          <div class="source-title">
-            Wright, M. <em>What makes someone an adult?</em> <span class="pub">Psychology Today</span>
-            <span class="date">(Nov 30, 2023)</span>
-          </div>
-          <div class="source-links">
-            <a href="#" title="Replace # with your real link">Link</a>
-          </div>
-        </div>
-
-        <div class="sourcecard">
-          <div class="source-title">
-            Beck, J. <em>When are you really an adult?</em> <span class="pub">The Atlantic</span>
-            <span class="date">(Jan 5, 2016)</span>
-          </div>
-          <div class="source-links">
-            <a href="#" title="Replace # with your real link">Link</a>
-          </div>
-        </div>
-
-        <figure class="inlinefig">
-          <img src="images/uk.jpg" alt="A skyline representing an international perspective on adulthood." />
-          <figcaption>Across cultures, adulthood is shifting from milestone-based to meaning-based.</figcaption>
-        </figure>
-
-        <p>
-          These pieces push the definition away from traditional milestones and toward capability: taking care of yourself,
-          owning your choices, and managing consequences. That definition is cleaner—but it can hide how economics shapes
-          “capability.” Responsibility is easier to carry when the ground under you is stable.
-        </p>
-
-        <h2>So, when do you become an adult?</h2>
-        <p>
-          You become an adult when responsibility becomes real—when choices have weight and you’re accountable for the outcome.
-          But the harsh truth is that the timing isn’t equal. For some, adulthood is gradual; for others, it’s forced.
-        </p>
-
-        <p>
-          If we want a society that doesn’t confuse survival with maturity, we need to stop treating “adult” like a label and
-          start treating it like a condition we either support—or abandon.
-        </p>
-
-        <section class="endmatter" id="sources">
-          <h3>Sources (replace the # links)</h3>
-          <ul>
-            <li>Megan, K. (2008, July 8). <em>Parents and grads need to talk about goals.</em> The Philadelphia Inquirer. <a href="#">Link</a></li>
-            <li>Volk, S. (2021, July 28). <em>Youth aging out of foster care are at risk of homelessness. Is Philadelphia doing all it can?</em> Generocity. <a href="#">Link</a></li>
-            <li>Wright, M. (2023, November 30). <em>What makes someone an adult?</em> Psychology Today. <a href="#">Link</a></li>
-            <li>Beck, J. (2016, January 5). <em>When are you really an adult?</em> The Atlantic. <a href="#">Link</a></li>
-          </ul>
-        </section>
-
-        <section class="endmatter" id="about">
-          <h3>About</h3>
-          <p>
-            <strong>Ayan Khan</strong> is a student writer focused on adulthood, inequality, and how “normal life” gets defined
-            by institutions. This is a NYT-inspired editorial sample site built on GitHub Pages.
-          </p>
-        </section>
-
-        <footer class="footer">
-          <div class="hairline"></div>
-          <p class="fineprint">© <span id="year"></span> The Metropolitan View</p>
-        </footer>
-      </article>
-
-      <!-- Right rail -->
-      <aside class="rail">
-        <div class="railbox">
-          <div class="railhead">In this piece</div>
-          <a class="raillink" href="#local">Local: post-grad drift</a>
-          <a class="raillink" href="#underrep">Underrepresented: aging out</a>
-          <a class="raillink" href="#international">International: milestone shift</a>
-          <a class="raillink" href="#sources">Sources</a>
-        </div>
-
-        <div class="railbox">
-          <div class="railhead">Quick take</div>
-          <p class="railtext">
-            Adulthood is less a birthday than a pressure test. The test is hardest for the people with the least support.
-          </p>
-        </div>
-
-        <div class="railbox">
-          <div class="railhead">Tip</div>
-          <p class="railtext">
-            Want it to look even more “publication”? Keep images black-and-white and captions short.
-          </p>
-        </div>
-      </aside>
+    <div class="pull">
+      <p>"Independence, with all its ugly moments and moving parts, is significantly better than the life where you are bound by the decisions of another person."</p>
+      <cite>&mdash; Ayan Khan &nbsp;&middot;&nbsp; The Metropolitan Standard &nbsp;&middot;&nbsp; February 2026</cite>
     </div>
+
+    <p>And then there is the ultimate final boss neuroscience-backed question which will surely put you in your place: "the brain isn't fully developed until 25." This ancient claim has been weaponized by the media and everyone from overly nosy parents to criminal defense attorneys. Except, as neuroscientist Dean Burnett (2024) explains, this is a total and absurd oversimplification of what the research actually says. The truth is that the brain continues changing throughout a person's entire life. What neuroscience has actually found is that certain regions associated with impulse control develop more slowly in adolescence, not that an 18-year-old is neurologically incapable of signing a lease or renting a car.</p>
+
+    <p>What this means is that we have curated a cultural and legal norm around adulthood that is convenient for some but a tragedy for others. We tell an 18-year-old they are old enough to vote, old enough to enlist, and then tell them their brain is not developed enough to be actually responsible. We cannot have it both ways. We must choose fairly and logically.</p>
+
+    <div class="div"><div class="div-gem"></div></div>
+    <div class="s-head">Who Gets Left Out</div>
+
+    <div class="callout">
+      <div class="callout-label">By the Numbers &mdash; Philadelphia</div>
+      <p>Approximately <strong>20,000 young people</strong> age out of the foster care system in the United States every year. More than <strong>30%</strong> will experience homelessness. In Philadelphia, many end up on SEPTA trains, not commuting, but surviving. (Volk, 2021)</p>
+    </div>
+
+    <p>Here is what the media leaves behind: for a significant number of young people, the question of when you become an adult is not a philosophical dilemma. It is answered for you, by the state. In Philadelphia and across the country, approximately 20,000 young people age out of the foster care system each year (Volk, 2021). At 18, or 21, they are released from the system and expected to magically get their life together without any resources or life skills. More than 30% will experience homelessness. Miracle did not have the luxury of pondering whether she felt like an adult. The system decided she was one, handed her a bus pass and a pamphlet, and wished her luck.</p>
+
+    <figure class="photo">
+      <img
+        src="https://images.unsplash.com/photo-1444723121867-7a241cacace9?w=1400&q=85&auto=format&fit=crop&crop=center"
+        alt="Philadelphia City Hall"
+        onerror="this.src='https://images.unsplash.com/photo-1569761316261-9a8696fa2ca3?w=1400&q=85&auto=format&fit=crop'"
+      >
+      <figcaption>Philadelphia City Hall &nbsp;&middot;&nbsp; Where policy and daily life quietly negotiate</figcaption>
+    </figure>
+
+    <div class="div"><div class="div-gem"></div></div>
+    <div class="s-head">Evaluation</div>
+
+    <p>So when do you become an adult? My opinion, after reviewing the research and paying for my own rent and groceries for thirty days, is that we have created a damaging culture of adulthood that cannot be fully accomplished independently in this current age. What one person could do 40 years ago now requires the hard work and coordination of two people. A single 18-year-old who wants to be independent has very limited options. They can depend entirely on their family, they can work a single job, find multiple roommates and eat mostly ramen, or they can work two jobs, barely make rent and have some change left to go watch a movie. Neither of these options are easy or fulfilling but they give you one necessary and soul-fulfilling right, which is the freedom to dictate your life.</p>
+
+    <p>You can find almost all breaths of life in Philadelphia within walking distance of each other. There are those who sleep on the trains to avoid the cold because the state marked them as legal functioning adults when they turned 18, and there are those who receive DoorDash money and are still on their parents' phone plan. I do not begrudge any of these people their circumstances. I do think we owe it to our friends and ourselves to be more honest about what we mean when we say adulthood is complicated. For some of us complication is an existential crisis, for some it was never a problem at all but rather the tragedy that happened on a random Tuesday when the paperwork ran out.</p>
+
+    <p>I am not writing this from a place of hardship or as a calling for help. I am writing this as someone who once thought that until I got my "big boy" job, being independent was an impossible feat. I am now writing this piece sitting in my own studio apartment, watching the skyline from my own window and counting the sirens with my own lover on my side. I am someone who made a choice, faced the consequences of that choice and now am enjoying the fruits of that choice. What I am writing against is the culture of treating this leap of faith as impossible rather than a difficult obstacle everyone has to face. I understand for some people it is impossible, for others the problem was never the leaving, it was the staying.</p>
+
+    <p>Living on my own for the first time taught me the dos and nots of this city quite quickly. It is a place like others that does not wait for you to finally feel ready. The wheel keeps turning and turning, the wanderers lurking, the evil turning the city cold and the good turning the clock to keep the fire ablaze. The people walking, building, and choosing all at the same time.</p>
+
+    <p>The question isn't when you become an adult. It's when you stop asking for permission to be one.</p>
+
   </main>
 
-  <script>
-    document.getElementById("year").textContent = new Date().getFullYear();
-  </script>
+  <aside class="sidebar">
+    <div class="sb">
+      <img class="sb-photo"
+        src="https://images.unsplash.com/photo-1534430480872-3498386e7856?w=600&q=85&auto=format&fit=crop"
+        alt="Philadelphia row houses"
+        onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=600&q=85&auto=format&fit=crop'"
+      >
+      <div class="sb-label">Philadelphia</div>
+      <div class="sb-text">Row houses, rent, and a city that asks you to grow up, whether you're ready or not.</div>
+    </div>
+    <div class="sb">
+      <div class="sb-label">Key Figure</div>
+      <div class="sb-num">30<span>%</span></div>
+      <div class="sb-text">of foster youth face homelessness after aging out. The conversation rarely finds them.</div>
+    </div>
+    <div class="sb">
+      <div class="sb-label">The Verdict</div>
+      <div class="sb-verdict">Convenient for some. A tragedy for others.</div>
+      <div class="sb-text">The adulthood debate is a class debate wearing a psychology costume.</div>
+    </div>
+    <div class="sb">
+      <div class="sb-label">Sources Cited</div>
+      <div class="sb-text" style="line-height:2.2;">
+        Volk (2021) &mdash; Generocity<br>
+        Megan (2008) &mdash; Inquirer<br>
+        Beck (2016) &mdash; The Atlantic<br>
+        Wright (2023) &mdash; Psych Today<br>
+        Burnett (2024) &mdash; BBC Science
+      </div>
+    </div>
+    <div class="sb">
+      <div class="sb-label">Filed Under</div>
+      <div class="sb-text" style="line-height:2.4;">
+        Philadelphia &middot; Foster Care<br>
+        Adulthood &middot; Gen Z<br>
+        Housing &middot; Opinion
+      </div>
+    </div>
+  </aside>
+</div>
+
+<section class="refs">
+  <div class="refs-head">References</div>
+  <div>
+    <p class="ref">Beck, J. (2016, January 5). When are you really an adult? <em>The Atlantic.</em> https://www.theatlantic.com</p>
+    <p class="ref">Burnett, D. (2024, April 26). Your brain isn't fully formed until you're 25, a neuroscientist demolishes the greatest mind myth. <em>BBC Science Focus.</em> https://www.sciencefocus.com</p>
+    <p class="ref">Megan, K. (2008, July 8). Parents and grads need to talk about goals. <em>The Philadelphia Inquirer.</em> https://www.inquirer.com</p>
+    <p class="ref">Volk, S. (2021, July 28). Youth aging out of foster care are at risk of homelessness. Is Philadelphia doing all it can? <em>Generocity.</em> https://generocity.org</p>
+    <p class="ref">Wright, M. (2023, November 30). What makes someone an adult? <em>Psychology Today.</em> https://www.psychologytoday.com</p>
+  </div>
+</section>
+
+<footer class="footer">
+  <div class="footer-brand">The Metropolitan Standard</div>
+  <div class="footer-meta">&copy; 2026 &nbsp;&middot;&nbsp; Philadelphia, PA<br>Opinion &nbsp;&middot;&nbsp; Culture &nbsp;&middot;&nbsp; Cities &nbsp;&middot;&nbsp; Ideas</div>
+</footer>
+
 </body>
 </html>
