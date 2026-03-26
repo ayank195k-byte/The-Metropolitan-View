@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>The Endless Adolescence — The Metropolitan Standard</title>
+<title>When Do You Become an Adult? — The Metropolitan Standard</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=IBM+Plex+Mono:ital,wght@0,300;0,400;0,500;1,300&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;1,300;1,400&family=Cormorant:ital,wght@0,600;0,700;1,600;1,700&display=swap" rel="stylesheet">
 <style>
@@ -21,7 +21,6 @@
   html { font-size: 17px; background: var(--surface); scroll-behavior: smooth; }
   body { font-family: 'Cormorant Garamond', Georgia, serif; color: var(--text); background: var(--surface); -webkit-font-smoothing: antialiased; }
 
-  /* MASTHEAD */
   .masthead { background: var(--surface); border-bottom: 3px solid var(--black); display: grid; grid-template-columns: 1fr auto 1fr; align-items: center; }
   .mast-left { padding: 20px 28px; border-right: 1px solid var(--rule); }
   .mast-right { padding: 20px 28px; border-left: 1px solid var(--rule); display: flex; flex-direction: column; align-items: flex-end; gap: 10px; }
@@ -32,19 +31,17 @@
   .mast-tagline { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--muted); }
   .opinion-pill { font-family: 'IBM Plex Mono', monospace; font-size: 0.56rem; letter-spacing: 0.18em; text-transform: uppercase; background: var(--red); color: #fff; padding: 5px 12px; }
 
-  /* NAV */
   .nav { background: var(--black); display: flex; justify-content: center; border-bottom: 1px solid #222; overflow-x: auto; }
   .nav a { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.18em; text-transform: uppercase; color: #666; text-decoration: none; padding: 13px 22px; border-right: 1px solid #222; transition: color 0.2s, background 0.2s; white-space: nowrap; }
   .nav a:first-child { border-left: 1px solid #222; }
   .nav a:hover { color: #fff; background: #1a1a1a; }
   .nav a.active { color: var(--red); background: #1a1a1a; }
 
-  /* HERO */
   .hero { display: grid; grid-template-columns: 1fr 1fr; min-height: 86vh; border-bottom: 1px solid var(--rule); }
   .hero-text { background: var(--black); padding: 76px 64px 64px; display: flex; flex-direction: column; justify-content: space-between; border-right: 4px solid var(--red); }
   .hero-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 28px; }
   .hero-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(3.2rem, 5vw, 5.4rem); line-height: 0.94; letter-spacing: 0.02em; color: #fff; text-transform: uppercase; margin-bottom: 32px; }
-  .hero-title-sub { font-family: 'Cormorant', serif; font-size: clamp(1.4rem, 2.6vw, 2.2rem); font-style: italic; font-weight: 600; color: #ccc; line-height: 1.2; display: block; text-transform: none; margin-top: 10px; }
+  .hero-title-sub { font-family: 'Cormorant', serif; font-size: clamp(1.2rem, 2.2vw, 1.9rem); font-style: italic; font-weight: 600; color: #aaa; line-height: 1.3; display: block; text-transform: none; margin-top: 14px; letter-spacing: 0; }
   .hero-deck { font-family: 'Cormorant Garamond', serif; font-size: 1.1rem; font-style: italic; font-weight: 300; line-height: 1.72; color: #888; max-width: 420px; margin-bottom: 52px; border-left: 2px solid var(--red-dim); padding-left: 18px; }
   .hero-byline { padding-top: 28px; border-top: 1px solid #2a2a2a; }
   .hero-byline-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.28em; text-transform: uppercase; color: var(--red); margin-bottom: 8px; }
@@ -52,14 +49,12 @@
   .hero-byline-role { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; letter-spacing: 0.18em; text-transform: uppercase; color: var(--red); margin-bottom: 6px; }
   .hero-byline-meta { font-family: 'IBM Plex Mono', monospace; font-size: 0.52rem; letter-spacing: 0.1em; color: #666; }
 
-  /* HERO IMAGE */
   .hero-img { position: relative; overflow: hidden; background: #0a0908; }
   .hero-img img { width: 100%; height: 100%; object-fit: cover; display: block; filter: saturate(0.5) contrast(1.05) brightness(0.85); transition: transform 8s ease, filter 1.2s ease; }
   .hero-img:hover img { transform: scale(1.04); filter: saturate(0.65) brightness(0.92); }
   .hero-img::after { content: ''; position: absolute; inset: 0; background: linear-gradient(to right, rgba(0,0,0,0.4) 0%, transparent 35%), radial-gradient(ellipse at center, transparent 40%, rgba(0,0,0,0.3) 100%); pointer-events: none; }
   .hero-img-cap { position: absolute; bottom: 20px; left: 22px; font-family: 'IBM Plex Mono', monospace; font-size: 0.5rem; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(255,255,255,0.4); z-index: 2; }
 
-  /* STATS */
   .stats { display: grid; grid-template-columns: repeat(3, 1fr); background: var(--black); border-bottom: 1px solid #222; }
   .stat { padding: 28px 36px; border-right: 1px solid #222; text-align: center; }
   .stat:last-child { border-right: none; }
@@ -67,7 +62,6 @@
   .stat-n span { color: var(--red); }
   .stat-l { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.14em; text-transform: uppercase; color: #aaa; }
 
-  /* CONTENT */
   .content { display: grid; grid-template-columns: 1fr 272px; border-bottom: 1px solid var(--rule); }
   .body { padding: 68px 68px 80px; border-right: 1px solid var(--rule); background: var(--surface); }
   .sidebar { padding: 48px 26px; background: var(--stone); }
@@ -77,6 +71,9 @@
 
   .body p { font-family: 'Cormorant Garamond', serif; font-size: 1.08rem; font-weight: 400; line-height: 1.88; color: var(--text); margin-bottom: 1.6rem; text-align: justify; hyphens: auto; }
   .body > p:first-of-type::first-letter { font-family: 'Bebas Neue', sans-serif; font-size: 5.4rem; line-height: 0.74; float: left; margin-right: 0.09em; margin-top: 0.08em; color: var(--red); }
+
+  .closing { font-family: 'Cormorant', serif; font-size: 1.18rem; font-style: italic; font-weight: 600; line-height: 1.9; color: var(--text); margin-top: 2.4rem; padding-top: 2.4rem; border-top: 1px solid var(--rule); text-align: center; }
+  .closing span { display: block; margin-top: 0.8rem; font-size: 1rem; font-weight: 400; color: var(--muted); }
 
   .photo { margin: 2.8rem -24px; position: relative; overflow: hidden; }
   .photo img { width: 100%; height: 400px; object-fit: cover; display: block; filter: saturate(0.5) contrast(1.05) brightness(0.88); transition: filter 1.2s ease; }
@@ -109,6 +106,17 @@
   .sb-verdict { font-family: 'Cormorant', serif; font-size: 1.3rem; font-style: italic; font-weight: 600; color: var(--text); line-height: 1.35; margin-bottom: 10px; }
   .sb-text { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; line-height: 1.8; color: var(--muted); }
 
+  .bib { background: var(--surface); padding: 56px 68px; border-bottom: 1px solid var(--rule); }
+  .bib-head { font-family: 'Bebas Neue', sans-serif; font-size: 2.2rem; letter-spacing: 0.06em; color: var(--black); margin-bottom: 8px; }
+  .bib-subhead { font-family: 'IBM Plex Mono', monospace; font-size: 0.55rem; letter-spacing: 0.24em; text-transform: uppercase; color: var(--red); margin-bottom: 36px; padding-bottom: 16px; border-bottom: 1px solid var(--rule); }
+  .bib-section { margin-bottom: 40px; }
+  .bib-section-label { font-family: 'IBM Plex Mono', monospace; font-size: 0.58rem; letter-spacing: 0.22em; text-transform: uppercase; color: var(--muted); margin-bottom: 20px; padding-bottom: 10px; border-bottom: 1px solid var(--rule); }
+  .bib-entry { margin-bottom: 28px; padding-bottom: 28px; border-bottom: 1px dashed var(--rule); }
+  .bib-entry:last-child { border-bottom: none; margin-bottom: 0; }
+  .bib-cite { font-family: 'IBM Plex Mono', monospace; font-size: 0.66rem; line-height: 1.8; color: var(--text); padding-left: 1.6rem; text-indent: -1.6rem; margin-bottom: 12px; }
+  .bib-cite em { font-style: italic; }
+  .bib-annotation { font-family: 'Cormorant Garamond', serif; font-size: 1rem; line-height: 1.82; color: #4a4642; }
+
   .refs { background: var(--black); padding: 56px 68px; display: grid; grid-template-columns: 150px 1fr; gap: 48px; border-bottom: 1px solid #222; }
   .refs-head { font-family: 'Bebas Neue', sans-serif; font-size: 2rem; letter-spacing: 0.06em; color: #fff; line-height: 1.1; }
   .ref { font-family: 'IBM Plex Mono', monospace; font-size: 0.64rem; line-height: 1.75; color: #888; padding-left: 1.3rem; text-indent: -1.3rem; margin-bottom: 1rem; padding-bottom: 1rem; border-bottom: 1px solid #222; }
@@ -136,6 +144,7 @@
     .content { grid-template-columns: 1fr; }
     .body { padding: 44px 24px; border-right: none; }
     .sidebar { border-top: 1px solid var(--rule); padding: 36px 24px; }
+    .bib { padding: 44px 24px; }
     .refs { grid-template-columns: 1fr; gap: 20px; padding: 44px 24px; }
     .footer { padding: 26px 24px; flex-direction: column; gap: 12px; text-align: center; }
     .footer-meta { text-align: center; }
@@ -175,16 +184,16 @@
     <div>
       <div class="hero-label">Essay No. 01 &mdash; Society &amp; Adulthood</div>
       <h1 class="hero-title">
-        The Endless<br>Adolescence
-        <span class="hero-title-sub">America's Most Comfortable Crisis</span>
+        When Do You<br>Become an<br>Adult?
+        <span class="hero-title-sub">Nobody told me it would cost this much.</span>
       </h1>
-      <p class="hero-deck">Why a generation old enough to vote, serve, and die for their country still isn't sure they're grown up, and why that question depends entirely on who's asking.</p>
+      <p class="hero-deck">A generation old enough to vote, serve, and die for their country still isn't sure they're grown up. And why that question depends entirely on who's asking.</p>
     </div>
     <div class="hero-byline">
       <div class="hero-byline-label">Written &amp; Edited by</div>
       <div class="hero-byline-name">Ayan Khan</div>
       <div class="hero-byline-role">Founder &nbsp;&middot;&nbsp; Editor-in-Chief &nbsp;&middot;&nbsp; The Metropolitan Standard</div>
-      <div class="hero-byline-meta">Feb. 28, 2026 &nbsp;&middot;&nbsp; Philadelphia, PA &nbsp;&middot;&nbsp; 8 min read</div>
+      <div class="hero-byline-meta">Feb. 28, 2026 &nbsp;&middot;&nbsp; Philadelphia, PA &nbsp;&middot;&nbsp; 10 min read</div>
     </div>
   </div>
   <div class="hero-img">
@@ -217,17 +226,17 @@
 
     <div class="s-head">Local &mdash; Philadelphia</div>
 
-    <p>Philadelphia is a city filled with enigmas. It is home to America's founding fathers, home to some of the oldest institutions of higher education and some of its most visible poverty. It has a neighborhood for every tax bracket. Underfunded and filthy SEPTA trains for every hour of the night, this can be a painful reality for people like Miracle, a young woman thrown out of the foster care system who has been documented sleeping on those trains just to get away from all the shit and filth this city has to offer to its citizens (Volk, 2021). Philadelphia is also filled with recent college graduates, most of those products of the wealthy sitting dumbfounded and pondering cluelessly about what exactly it is they are supposed to do next. Megan (2008) documented this particular species in the Philadelphia Inquirer, about those who followed the easy path of completing college but having no idea what the world actually requires of them. The question that slowly crawls in the spine of all these young adults is almost identical: at what point exactly did I become an adult? And why can't anybody tell me the damn truth?</p>
+    <p>Philadelphia is a city filled with enigmas. It is home to America's founding fathers, home to some of the oldest institutions of higher education and some of its most visible poverty. It has a neighborhood for every tax bracket. Underfunded and filthy SEPTA trains for every hour of the night, this can be a painful reality for people like Miracle, a young woman thrown out of the foster care system who has been documented sleeping on those trains just to get away from all the shit and filth this city has to offer to its citizens (Volk, 2021). Philadelphia is also filled with recent college graduates, most of those products of the wealthy sitting dumbfounded and pondering cluelessly about what exactly it is they are supposed to do next. Kathleen Megan (2008) documented this particular species in the Philadelphia Inquirer, about those who followed the easy path of completing college but having no idea what the world actually requires of them. The question that slowly crawls in the spine of all these young adults is almost identical: at what point exactly did I become an adult? And why can't anybody tell me the damn truth?</p>
 
     <p>During a conversation, this question flows freely. Adulthood is a real and necessary path everyone has to cross, but no one ever tells us exactly how. Legally it is 18, neurologically it has long been claimed to be 25, although that claim is becoming difficult to defend as more research is published (Burnett, 2024). Emotional, social and financial maturity differs by who and where you are, and how willing your parents or guardians are to support you.</p>
 
     <figure class="photo">
       <img
         src="https://images.unsplash.com/photo-1523050854058-8df90110c9f1?w=1400&q=85&auto=format&fit=crop&crop=center"
-        alt="Philadelphia neighborhood"
+        alt="Philadelphia students"
         onerror="this.src='https://images.unsplash.com/photo-1486325212027-8081e485255e?w=1400&q=85&auto=format&fit=crop'"
       >
-      <figcaption>North Philadelphia &nbsp;&middot;&nbsp; Two versions of young adulthood exist within blocks of each other</figcaption>
+      <figcaption>Philadelphia &nbsp;&middot;&nbsp; Two versions of young adulthood exist within blocks of each other</figcaption>
     </figure>
 
     <div class="div"><div class="div-gem"></div></div>
@@ -237,9 +246,17 @@
 
     <p>Nobody tells you that adulthood shows you its colors through household supplies. Not through some cinematic or "ah-hah" moment but rather through trash bags, parking tickets and next month's rent. Seeing past the hidden veil of a functioning life costs actual money and requires actual coordination from an actual person, and that person is now you. It is not easy nor glamorous. It is also, and I want to emphasize this, significantly better than the alternative.</p>
 
-    <p>That last part is the whole point of this piece. Nobody tells you that independence, with all its ugly moments, all of its moving parts and weight, even standing in a completely new city with no idea how to pay next month's rent, is significantly better than the life where you are bound by the decisions of another person. This pride and accomplishment takes you from a "kid" to an "adult." After you take that leap everything after that lets you control the script of your own movie, where you are the director, the actor and the producer.</p>
+    <p>Independence, with all its ugly moments, all of its moving parts and weight, even standing in a completely new city with no idea how to pay next month's rent, is significantly better than the life where you are bound by the decisions of another person. This pride and accomplishment takes you from a "kid" to an "adult." After you take that leap everything after that lets you control the script of your own movie, where you are the director, the actor and the producer.</p>
 
     <p>The countless wanderers I brush shoulders with on the streets of Philadelphia are not failed adults. They are a reminder that the question of when you grow up looks very different depending on what you're growing up into, and what you're growing up away from.</p>
+
+    <p>Two weeks into my journey, after 148 job applications and two rounds of in-person interviews, I got myself a job as a waiter at The Merion Cricket Club. One of the oldest and most expensive private clubs in the whole world. The type of place where memberships are inherited not granted, where the grass is cut to an exact length and the silence costs money. I serve people there. I take their orders and tell them my life story for entertainment.</p>
+
+    <p>One evening while working a table for a family of two parents and a little girl who could not have been more than four years old, her parents started telling me their whole order like normal parents do, without asking or thinking. Except the little girl did not let them finish. She interrupted them when they tried ordering for her. She looked me straight in my eyes and told me what she wanted, in her own words, her own voice, like she had been doing it her whole life. Four years old and she already knew how to dictate a room. Her parents smiled the way people smile when they know something you don't.</p>
+
+    <p>Walking away from that table, the moment was stuck in my head for the rest of the day. What I had just watched was not a cute moment, nor was it random. It was conditioning showing the work her parents had instilled in their child from the moment she gained consciousness. The wealthy do not wait for adulthood to teach their children confidence. They start at four, at private clubs with wealthy influential people, waiters and white tablecloths. They condition them to feel at home in rooms specifically designed to make other people feel small. By the time that girl is eighteen, independence will not be a leap of faith. It will be a random Tuesday.</p>
+
+    <p>Because here is the thing nobody says out loud. The wealthy do not experience adulthood the way the rest of us do. They do not stress doing math that doesn't add up. They do not choose between groceries and rent. They do not move into a new city and feel the horror of watching their bank account go negative after a month's bills and wonder how they are supposed to survive. The path that defines the transition to adulthood, the scrambling, the anxiety, the uncertainty and loneliness, are not part of their way. They have accountants for the money, connections for the jobs and family homes to come back to if everything turns into a disaster. So when the conversation about adulthood comes up, understand that the people who control and dictate the narrative of this whole discussion grew up at tables like the ones I serve. Adulthood was never something they had to achieve. It was handed to them, quietly, between courses.</p>
 
     <div class="div"><div class="div-gem"></div></div>
     <div class="s-head">The Broader Picture</div>
@@ -247,7 +264,7 @@
     <p>This question about adulthood is obviously not native to America. In the UK a study organized 722 people and asked them to describe adulthood. They all had a similar answer: for them adulthood was simply the feeling of having personal responsibility and the ability to survive, rather than the traditional goals of marriage or homeownership (Wright, 2023).</p>
 
     <div class="pull">
-      <p>"Independence, with all its ugly moments and moving parts, is significantly better than the life where you are bound by the decisions of another person."</p>
+      <p>"Adulthood was never something they had to achieve. It was handed to them, quietly, between courses."</p>
       <cite>&mdash; Ayan Khan &nbsp;&middot;&nbsp; The Metropolitan Standard &nbsp;&middot;&nbsp; February 2026</cite>
     </div>
 
@@ -285,7 +302,10 @@
 
     <p>Living on my own for the first time taught me the dos and nots of this city quite quickly. It is a place like others that does not wait for you to finally feel ready. The wheel keeps turning and turning, the wanderers lurking, the evil turning the city cold and the good turning the clock to keep the fire ablaze. The people walking, building, and choosing all at the same time.</p>
 
-    <p>The question isn't when you become an adult. It's when you stop asking for permission to be one.</p>
+    <div class="closing">
+      The question isn't when you become an adult.<br>It's when you stop asking for permission to be one.
+      <span>Or, as my brother once told me &mdash; you become an adult the day someone else starts needing you to be one.</span>
+    </div>
 
   </main>
 
@@ -330,6 +350,44 @@
   </aside>
 </div>
 
+<!-- ANNOTATED BIBLIOGRAPHY -->
+<section class="bib">
+  <div class="bib-head">Annotated Bibliography</div>
+  <div class="bib-subhead">When Do You Become an Adult? &nbsp;&mdash;&nbsp; Ayan Khan &nbsp;&mdash;&nbsp; The Metropolitan Standard</div>
+
+  <div class="bib-section">
+    <div class="bib-section-label">Local Journalism</div>
+    <div class="bib-entry">
+      <p class="bib-cite">Megan, K. (2008, July 8). Parents and grads need to talk about goals. <em>The Philadelphia Inquirer.</em></p>
+      <p class="bib-annotation">Megan's article meddles in the long struggle of college graduates who admit feeling lost after getting their degrees, and the pressure they face from themselves and their surrounding family. She meets with career counselors and young adults who are grown on paper but feel lost on how to move forward. The article suggests that honest conversations about this area of life are essential to navigate going from a "young adult" to an actual adult. Without this communication both the grads and parents can float in between this confusing zone of trying to become independent while still relying on others. The article raises a question: if you have a degree but no path, are you actually an adult or simply trying to play the role? This is a credible local piece from the Philadelphia Inquirer, a regional newspaper. It's not exactly a scientific study but it shows interaction with real grads and professionals, which makes it a good piece on how adulthood is playing out in the region. The downside is that the article is a bit outdated (2008) and doesn't address the absolutely outrageous and downright savage tuition levels that leave students in a mountain of debt. Although it still shows credible struggles that remain relevant today.</p>
+    </div>
+  </div>
+
+  <div class="bib-section">
+    <div class="bib-section-label">Underrepresented Voice</div>
+    <div class="bib-entry">
+      <p class="bib-cite">Volk, S. (2021, July 28). Youth aging out of foster care are at risk of homelessness. Is Philadelphia doing all it can? <em>Generocity.</em></p>
+      <p class="bib-annotation">Volk's article talks about the young people who are getting out of foster care and heading straight for homelessness, like "Miracle" who sleeps on SEPTA trains just to stay safe. This article shows that if you turn 18 or 21 you don't magically become an "adult" but rather face countless struggles and pain if you don't have external support. Every year, around 20,000 young people across America age out of foster care and over 30% experience homelessness, a pipeline that is clearly visible in Philly's streets. Volk emphasizes one question: if middle class kids still rely on parents however long they want, why are foster kids expected to be full adults the second the state is done with them? Generocity is a local Philadelphia nonprofit news outlet that focuses on social justice and community problems. Volk's findings are backed by actual numbers and credible sources. The limitation is that it is still journalism and not a peer-reviewed study, but for this assignment it is a valid and fulfilling source.</p>
+    </div>
+  </div>
+
+  <div class="bib-section">
+    <div class="bib-section-label">International Journalism</div>
+    <div class="bib-entry">
+      <p class="bib-cite">Wright, M. (2023, November 30). What makes someone an adult? <em>Psychology Today.</em></p>
+      <p class="bib-annotation">The author writes on a survey of 722 people in the UK and claims that adulthood today is less about hitting the traditional milestones praised in previous generations like marriage or buying a house, and more psychological. Participants said being able to take care of yourself and your actions mattered more than legal age or family. Wright's main point is that if we cling to older checklists for adulthood, we can miss what is actually considered normal in the modern age. Psychology Today isn't an academic journal but it stems its findings from actual research which marks it as credible. The methods are briefly described so we don't get all the details, and the data is limited to the UK so we cannot generalize it as a universal standard. But for this assignment it is a credible source.</p>
+    </div>
+    <div class="bib-entry">
+      <p class="bib-cite">Beck, J. (2016, January 5). When are you really an adult? <em>The Atlantic.</em></p>
+      <p class="bib-annotation">This article heads straight into the most confusing aspect: in a culture where people in their twenties move back home, don't get married, and bounce between jobs, what actually makes someone an adult? Beck showed that legal ages 18-21 don't match how people actually feel about themselves. Many participants describe adulthood more as a feeling of being responsible and able to choose your own life, rather than a specific event like a wedding or a first job. The Atlantic is a major national magazine known for honest reporting and careful editing, making this a solid source. It doesn't give original data like a scientific study, but it pulls from polls and developmental research. For this assignment this piece is perfect for supporting that the legal system's age lines are out of sync with real life.</p>
+    </div>
+    <div class="bib-entry">
+      <p class="bib-cite">Burnett, D. (2024, April 26). 'Your brain isn't fully formed until you're 25' &mdash; a neuroscientist demolishes the greatest mind myth. <em>BBC Science Focus.</em></p>
+      <p class="bib-annotation">Burnett, a neuroscientist, challenges the popular claim that your brain isn't fully developed until you're 25. He argues that your brain doesn't just stop evolving when you turn 25 but rather keeps changing throughout your whole life. The article shows how these claims have made their way into policy debates and sentencing, often without any scientific support. Burnett's main point isn't that 16-year-olds are exactly like 40-year-olds, but that using one magic number is lazy. If we're going to claim that someone isn't an adult simply "because of science" we should at least respect what the science actually says. This is as credible as it gets: a neuroscientist writing for a popular science news outlet that backs everything it publishes, making this a great source.</p>
+    </div>
+  </div>
+</section>
+
 <section class="refs">
   <div class="refs-head">References</div>
   <div>
@@ -343,7 +401,7 @@
 
 <footer class="footer">
   <div class="footer-brand">The Metropolitan Standard</div>
-  <div class="footer-meta">&copy; 2026 &nbsp;&middot;&nbsp; Philadelphia, PA<br>Opinion &nbsp;&middot;&nbsp; Culture &nbsp;&middot;&nbsp; Cities &nbsp;&middot;&nbsp; Ideas</div>
+  <div class="footer-meta">&copy; 2026 &nbsp;&middot;&nbsp; Philadelphia, PA<br>Opinion &nbsp;&middot;&nbsp; Culture &nbsp;&middot;&nbsp; Ideas</div>
 </footer>
 
 </body>
